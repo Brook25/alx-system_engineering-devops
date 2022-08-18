@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# displays Best School.
+# displays Best School many times.
 
 COUNTER=10
 until [ $COUNTER -lt 1 ]

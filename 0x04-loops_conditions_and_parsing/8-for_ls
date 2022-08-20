@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This script presents files in list format
-FILES=$(ls | cut -d "-" --complement -f1)
+FILES=$(find ./ | cut -d "-" --complement -f1 | cut -d "/" -f2)
 for i in $FILES
 do
 	echo -n "$i

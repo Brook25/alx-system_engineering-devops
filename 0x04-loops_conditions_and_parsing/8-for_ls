@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script presents files in list format
+FILES=$(ls | cut -d "-" --complement -f1)
+for i in $FILES
+do
+	echo -n "$i
+"
+
+done
+exit 0

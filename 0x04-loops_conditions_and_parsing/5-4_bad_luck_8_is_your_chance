@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
-# displays Holberton School 10 times.
+# This script displays bad luck and good luck during certain iterations
 
-COUNTER=1
-while [ $COUNTER -lt 11 ]
+var=1
+LIMIT=10
+while [ $var -le $LIMIT ]
 do
-    if [ $COUNTER = 4 ]
-    then
-        echo "bad luck"
-    elif [ $COUNTER = 8 ]
-    then
-        echo "good luck"
-    else
-        echo "Best School"
-    fi
-    let COUNTER+=1
+if [ $var -eq 4 ]
+then
+	echo -n "bad luck
+"
+elif [ $var -eq 8 ]
+then
+	echo -n "good luck
+"
+else
+	echo -n "Best School
+"
+fi
+	(( var++ ))
 done
+exit 0

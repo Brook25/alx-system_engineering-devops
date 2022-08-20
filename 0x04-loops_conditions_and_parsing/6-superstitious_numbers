@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# This script displays superstitious numbers for 3 countries
+
+var=1
+LIMIT=20
+while [ $var -le $LIMIT ]
+do
+case $var in
+
+	4)
+	echo -n "$var
+bad luck from China
+"
+	;;
+	
+	9)
+	echo -n "$var
+bad luck from Japan
+"
+	;;
+
+	17)
+	echo -n "$var
+bad luck from Italy
+"
+	;;
+
+	*)
+	echo -n "$var
+"
+esac
+	(( var++ ))
+done
+exit 0

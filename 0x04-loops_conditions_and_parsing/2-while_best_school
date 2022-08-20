@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-# displays Holberton School 10 times.
-
-COUNTER=0
-while [ $COUNTER -lt 10 ]
+# This script displays "Best School" 10 times using while
+LIMIT=10
+var=0
+while [ $var -lt $LIMIT ]
 do
-    echo "Best School"
-    let COUNTER=COUNTER+1
+	echo -n "Best School
+"
+	var=$((var + 1))
 done
+exit 0

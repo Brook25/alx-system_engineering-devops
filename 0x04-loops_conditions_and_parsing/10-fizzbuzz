@@ -6,15 +6,15 @@ LIMIT=100
 while [ $var -le $LIMIT ]
 do
 	
-	if (( $var % 3 == 0 && $var % 5 == 0 ))
+	if (( var % 3 == 0 && var % 5 == 0 ))
 	then
-		echo -n "Fizzbuzz
+		echo -n "FizzBuzz
 "
-	elif (( $var % 3 == 0 ))
+	elif (( var % 3 == 0 ))
 	then
 		echo -n "Fizz
 "
-	elif (( $var % 5 == 0 ))
+	elif (( var % 5 == 0 ))
 	then
 		echo -n "Buzz
 "

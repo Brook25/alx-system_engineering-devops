@@ -24,7 +24,7 @@ fi
 
 if [ -f $FILE ]
 then
-	echo -n "school file is a regular file
+	echo -n "school is a regular file
 "
 
 fi

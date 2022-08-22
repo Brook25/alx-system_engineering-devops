@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# Displays "To infinity and beyond" indefinitely with
-#+ a sleep 2 in between each iteration.
+# This script prints "To infinity and beyond" indefinitely
 
-while true
+var=0
+
+while (( var == 0 ))
 do
-  echo "To infinity and beyond"
-  sleep 2
+	echo "To infiinity and beyond"
+	sleep 2
 done

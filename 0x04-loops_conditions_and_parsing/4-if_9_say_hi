@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
-# says hi.
+# This script displays "Best School" 10 times with hi at 9th iteration
 
-COUNTER=0
-while [ $COUNTER -lt 11 ]
+var=0
+LIMIT=10
+
+while [ "$var" -lt "$LIMIT" ]
 do
-    if [ $COUNTER = 9 ]
-    then
-        echo "Hi"
-    else
-        echo "Best School"
-    fi
-    let COUNTER+=1
+	echo -n "Best School
+"
+if [ $var -eq 8 ]
+then
+	echo -n "Hi
+"
+fi
+	(( var++ ))
+
 done
+exit 0

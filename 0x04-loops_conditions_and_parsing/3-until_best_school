@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-# displays Best School many times.
-
-COUNTER=10
-until [ $COUNTER -lt 1 ]
+# This script dislplays "Best School" 10 times using until
+var=0
+LIMIT=10
+until [ "$var" = "$LIMIT" ]
 do
-    echo "Best School"
-    let COUNTER-=1
+	echo -n "Best School
+"
+	(( var++ ))
 done
+exit 0

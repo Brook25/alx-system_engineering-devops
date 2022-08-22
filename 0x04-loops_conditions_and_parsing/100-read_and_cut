@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script displays the content of /etc/passwd
+cut -d ":" -f 1,3,6 "/etc/passwd" >> temp
+input="temp"
+while read -r line
+do
+	echo "$line"
+done < "$input"
+rm temp
+exit 0

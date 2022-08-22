@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# This script prints FizzBuzz
+var=1
+LIMIT=100
+
+while [ $var -le $LIMIT ]
+do
+	
+	if (( var % 3 == 0 && var % 5 == 0 ))
+	then
+		echo -n "FizzBuzz
+"
+	elif (( var % 3 == 0 ))
+	then
+		echo -n "Fizz
+"
+	elif (( var % 5 == 0 ))
+	then
+		echo -n "Buzz
+"
+	else
+		echo -n "$var
+"
+	fi
+	(( var++ ))
+done
+exit 0

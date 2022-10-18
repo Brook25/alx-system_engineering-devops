@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install Nginx and the init file have only a message
+# Install Nginx and prints a message
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install nginx -y

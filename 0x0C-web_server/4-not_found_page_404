@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
-# This script configures an Nginx server to have a custom 404 page that contains the string 'Ceci n'est pas une page'
+# This script configures a new Ubuntu machine to respect the requirements:
+# Configure a new Nginx server so that /redirect_me is redirecting to another page
+# Configure your Nginx server to have a custom 404 page that contains the string Ceci n'est pas une page
 
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Holberton School' > /var/www/html/index.nginx-debian.html
-sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sed -i '/server_name _;/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /usr/share/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
-service nginx start
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
+sudo chown "$USER":"$USER" /var/www/html/index.html
+echo 'Hello World!' > /var/www/html/index.html
+sudo sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sudo mkdir -p /var/www/error
+echo "Ceci n'est pas une page" | sudo tee /var/www/error/404.html
+sudo sed -i '/server_name _/a error_page 404 /404.html; location = /404.html {root /var/www/error/;internal; }' /etc/nginx/sites-available/default
+sudo service nginx start

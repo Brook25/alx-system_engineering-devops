@@ -1,4 +1,5 @@
 # ssh client configuration file
 Host *
       PasswordAuthentication no
+      PubkeyAuthentication yes
       IdentifyFile ~/.ssh/school

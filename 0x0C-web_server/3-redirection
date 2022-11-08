@@ -6,17 +6,8 @@ apt-get install nginx -y
 
 
 echo "Hello World!" > /var/www/html/index.html
-
-printf %s "server {
-     listen      80 default_server;
-     listen      [::]:80 default_server;
-     root        /var/www/html;
-     index       index.html index.htm;
-
-     location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-}
-" > /etc/nginx/sites-available/default
+new_str="location \/redirect_me {\n\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;"
+sed -i '/^#/d' /etc/nginx/sites-available/default
+sed -i s/"location \/ {"/"${new_str}"/g /etc/nginx/sites-available/default
 
 service nginx restart

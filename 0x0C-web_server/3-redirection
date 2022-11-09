@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
-# This script Installs nginx webserver so that /redirect_me redirects to another page.
-
-apt-get update
-apt-get install nginx -y
-
-
-echo "Hello World!" > /var/www/html/index.html
-new_str="location \/redirect_me {\n\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;"
-sed -i '/^#/d' /etc/nginx/sites-available/default
-sed -i s/"location \/ {"/"${new_str}"/g /etc/nginx/sites-available/default
-
-service nginx restart
+# script creates a block that configures page redirect
+apt-get update -y
+apt-get upgrade -y
+apt install nginx -y
+echo 'Hello World!' | tee /var/www/html/*
+sed -i "s/^\tlocation \/ {/\tlocation \/redirect_me {/g" /etc/nginx/sites-available/default
+sed -i "/redirect_me/a\\\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;" /etc/nginx/sites-available/default
+service nginx start

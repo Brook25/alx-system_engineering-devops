@@ -1,0 +1,13 @@
+
+frontend node-http
+	bind 0.0.0.0:80
+	mode http
+	default_backend web-backend
+
+backend web-backend
+	balance roundrobin
+	option forwardfor
+	server 39977-web-01 3.236.145.90:80 check
+	server 39977-web-02 3.85.148.22:80 check
+
+

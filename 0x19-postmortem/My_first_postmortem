@@ -1,6 +1,6 @@
 # Summary of the etapps web service disruption and related in AIT company, Addis Abeba, Ethiopia
 
-The following is the incident report for the etapps service outage that occurred on October 25, 2022. We understand this service issue has impacted our valued users on etapps ERP, and we apologize to everyone who was affected.
+The following is the incident report for the etapps service outage that occurred on December 2, 2022. We understand this service issue has impacted our valued users on etapps ERP, and we apologize to everyone who was affected.
 
 ## Issue Summary
 On Tuesday, at 06:13pm to 07:22pm UTC-5, there was a brief network disruption that impacted a portion of etapps service. Normally, this type of networking disruption is handled seamlessly and without change to the performance, as affected storage servers query, process any updates, and reconfirm their availability to accept requests. The issue affected 100% of traffic to this service, all modules were down for a period of 1 hour aprox, and the root cause was an invalid configuration change in the main nginx file.

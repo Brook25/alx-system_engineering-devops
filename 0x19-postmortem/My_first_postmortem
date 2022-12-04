@@ -1,0 +1,38 @@
+# Summary of the etapps web service disruption and related in AIT company, Addis Abeba, Ethiopia
+
+The following is the incident report for the etapps service outage that occurred on October 25, 2022. We understand this service issue has impacted our valued users on etapps ERP, and we apologize to everyone who was affected.
+
+## Issue Summary
+On Tuesday, at 06:13pm to 07:22pm UTC-5, there was a brief network disruption that impacted a portion of etapps service. Normally, this type of networking disruption is handled seamlessly and without change to the performance, as affected storage servers query, process any updates, and reconfirm their availability to accept requests. The issue affected 100% of traffic to this service, all modules were down for a period of 1 hour aprox, and the root cause was an invalid configuration change in the main nginx file.
+
+## Timeline (all times UTC-5)
+* 06:20pm: service down is detected by a final user
+* 06:22pm: look for error in server log files to detect the issue
+* 06:28pm: Alert all tech and engineering team
+* 06:35pm: Try to restore last backup taken
+* 06:45pm: Try to reconnect data base and config the main nginx file again
+* 07:02pm: Successful configuration change rollback
+* 07:05pm: Server restarts begin
+* 07:10pm: we carry out several tests
+* 07:22pm: 100% of traffic back online
+
+## Root Cause, resolution and recovery
+At 5:52PM UTC-5, a configuration change was inadvertently released to our production environment without first being released to the testing enviroment. The change specified an invalid parameter for the performance servers in production nginx file for the proxy reverse. When the service was restarted, this generated a conflict in all service which the company could not open and work the main modules like sales, purchases and inventory. In addition, the internal monitoring systems permanently alert us, but this time it didn't and we overlooked it. Traffic was permanently queued waiting for a serving thread to become available. The file changed was restore as before we had it, commenting the lines added to analyze and test them later. The server began repeatedly hanging and restarting as they attempted to recover and at 07:22 PM UTC-5, the service outage began.
+
+## Corrective and Preventative Measures
+In the last two days, we’ve conducted an internal review and analysis of the outage. The following are actions we are taking to address the underlying causes of the issue and to help prevent recurrence and improve response times:
+* Improve the monitoring on server config files or changes
+* Patch Nginx server
+* Disable the current configuration release mechanism until safer measures are implemented.
+* Tests all changes in other cloud server for testing purposes.
+* Change rollback process to be quicker and more robust.
+* Improve process for auditing all high-risk configuration options.
+* Develop better mechanism for quickly delivering status notifications during incidents.
+
+etapps company is committed to continually and quickly improving our technology and operational processes to prevent outages. We appreciate your patience and again apologize for the impact to you, your users, and your organization. We thank you for your business and continued support.
+
+Sincerely,
+
+etapps Inc, Addis Abeba, Ethiopia.
+
+Posted by [Brook Endale](https://twitter.com/bookrbek)

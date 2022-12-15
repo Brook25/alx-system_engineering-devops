@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# Bash function that lists record infos for all subdomains of a given domain
 
 subdomain_info(){
 

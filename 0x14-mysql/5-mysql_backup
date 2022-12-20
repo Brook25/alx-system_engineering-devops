@@ -2,4 +2,4 @@
 # Takes passwd as argument and creates a compressed archive of all databases
 dte=$(date +"%d-%m-%Y")
 sudo mysqldump -u root -p"$1" --all-databases > backup.sql
-sudo tar -cvf "$dte".tar.gz backup.sql
+sudo tar -cvzf "$dte".tar.gz backup.sql

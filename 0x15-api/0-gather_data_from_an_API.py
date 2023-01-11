@@ -2,10 +2,9 @@
 """this script returns to-do list information for a given employee ID."""
 
 
-import requests, sys
+import requests 
+import sys
 
-
-#if __name__ == "main":
 
 url = 'https://jsonplaceholder.typicode.com'
 

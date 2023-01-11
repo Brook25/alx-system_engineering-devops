@@ -1,17 +1,18 @@
 #!/usr/bin/python3
 """this script returns to-do list information for a given employee ID."""
-import requests 
-import sys
+import requests, sys
 
 
-url = 'https://jsonplaceholder.typicode.com'
+if __name__ == "__main__":
 
-name = requests.get(url + '/users/{}'.format(sys.argv[1])).json()['name']
+    url = 'https://jsonplaceholder.typicode.com'
 
-res = requests.get(url + '/todos', params={'userId': sys.argv[1]}).json()
+    name = requests.get(url + '/users/{}'.format(sys.argv[1])).json()['name']
 
-tasks = [x for x in res if x['completed'] is True]
-print('Employee {} is done with tasks({}/{}):'.format(name, len(tasks), len(res)))
-for i in tasks:
-    print('\t' + i['title'])
+    res = requests.get(url + '/todos', params={'userId': sys.argv[1]}).json()
+
+    cpd_tasks = [x for x in res if x['completed'] is True]
+    print('Employee {} is done with tasks({}/{}):'.format(name, len(cpd_tasks), len(res)))
+    for i in cpd_tasks:
+        print('\t' + i['title'])
 

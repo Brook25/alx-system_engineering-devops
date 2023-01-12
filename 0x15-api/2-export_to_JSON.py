@@ -17,8 +17,6 @@ if __name__ == "__main__":
         x['username'] = user['username']
         x['task'] = x['title']
         x.pop('title')
-
-
     res = {user['id']: res}
     fname = str(user['id']) + '.json'
     with open(fname, 'w') as f:
